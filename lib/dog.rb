@@ -2,7 +2,7 @@ class Dog
 
   attr_accessor :id, :name, :breed
 
-  def initialize(id=nil, name, breed)
+  def initialize(id:=nil, name:, breed:)
     @id = id
     @name = name
     @breed = breed
@@ -39,7 +39,7 @@ class Dog
 
       DB[:conn].execute(sql, self.name, self.breed)
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
-      Dog
+      
     end
   end
 
