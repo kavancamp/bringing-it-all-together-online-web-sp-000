@@ -9,7 +9,7 @@ class Dog
     @breed = breed
     @@all << save
   end
-  
+
   def self.create_table
     sql = <<-SQL
       CREATE TABLE IF NOT EXISTS dogs (
@@ -92,4 +92,4 @@ class Dog
     sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end
-end 
+end
